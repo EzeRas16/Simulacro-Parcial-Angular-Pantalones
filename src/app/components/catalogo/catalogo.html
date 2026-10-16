@@ -1,0 +1,36 @@
+<h2>Catálogo</h2>
+
+<div class="filtros">
+  <label>Corte
+    <select #corteSel (change)="filtroPorCategoria.set($any(corteSel.value))">   <!-- $any: le dice a TypeScript "confiá, es un Corte" -->
+      <option value="">Todos</option>
+      @for (c of cortes; track c) {
+        <option [value]="c">{{ c }}</option>
+      }
+    </select>
+  </label>
+
+  <label>Precio máximo
+    <input #precioInp type="number" min="0"
+           (input)="precioMaximo.set(precioInp.value === '' ? null : precioInp.valueAsNumber)" />  <!-- vacío = null = sin filtro -->
+  </label>
+
+  <label>Ordenar
+    <select #ordenSel (change)="ordenPorPrecio.set($any(ordenSel.value))">
+      <option value="original">Sin orden</option>
+      <option value="asc">Precio: menor a mayor</option>
+      <option value="desc">Precio: mayor a menor</option>
+    </select>
+  </label>
+</div>
+
+<ul>
+  @for (p of pantalonesFiltrados(); track p.id) {
+    <li>
+      <span>{{ p.modelName }} | Talle {{ p.size }} | ${{ p.salePrice }}</span>
+      <button type="button" (click)="verMas(p.id)">Ver más &rarr;</button>
+    </li>
+  } @empty {
+    <li>No hay pantalones con esos filtros.</li>
+  }
+</ul>

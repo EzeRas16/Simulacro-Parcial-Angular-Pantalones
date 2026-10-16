@@ -1,0 +1,39 @@
+.tarjeta {
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: var(--background-darker-color);
+    max-width: 500px;
+    margin: 0 auto 40px auto;
+    padding: 1.5rem;
+    
+}
+.tarjeta h2 , .tarjeta h3 , .tarjeta p {
+    margin: 0.5rem 0;
+}
+
+.botones{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    
+}
+
+button {
+    padding: 0.4rem 1.5rem;                   /* espacio interno: arriba/abajo, izquierda/derecha */
+  border: 1px solid var(--font-color);      /* borde fino con el color de la paleta */
+  border-radius: 4px;                       /* esquinas levemente redondeadas */
+  cursor: pointer;                          /* manito al pasar el mouse */
+}
+
+button:disabled {
+  border-color: #aaa;                       /* borde apagado cuando el botón está deshabilitado */
+  color: #888;                              /* texto apagado */
+  cursor: not-allowed;                      /* cursor de prohibido */
+}
+
+.notas {
+  max-width: 250px;                         /* ancho máximo: cuando el texto llega a 250px, baja a la línea siguiente */
+  margin: 0 auto;                           /* arriba/abajo 0, costados auto: centra el bloque dentro de la tarjeta */
+  text-align: left;                         /* el texto adentro se alinea a la izquierda, como en la maqueta */
+}

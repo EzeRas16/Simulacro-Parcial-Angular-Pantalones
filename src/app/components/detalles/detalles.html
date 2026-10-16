@@ -1,0 +1,26 @@
+@if (noEncontrado()) {                                                  <!-- ¿falló el pedido (id inexistente)? -->
+  <p>No se encontró el pantalón.</p>                                    <!-- mensaje del caso de error -->
+} @else if (pantalon(); as p) {                                         <!-- Lo guarda en "p" -->
+  <article class="tarjeta">                                             <!-- caja con borde (clase del CSS) -->
+    <h2>{{ p.modelName }}</h2>                                          <!-- {{ }} muestra un valor en pantalla -->
+    <p>Talle {{ p.size }} | Corte {{ p.cut }}</p>                       <!-- texto fijo mezclado con valores -->
+    <p>Precio de venta: ${{ p.salePrice }}</p>                          <!-- el $ es texto, {{ }} es el valor -->
+    @if (p.isInStore) {                                                 <!-- solo se dibuja si es true -->
+      <p>Disponible en tienda</p>
+    }
+    <h3>Observaciones</h3>
+    <div class = "notas">
+            <p>{{ p.notes }}</p>                                                <!-- si notes no existe, queda vacío -->
+
+    </div>
+
+    <div class="botones">                                               <!-- contenedor de los dos botones -->
+      <button type="button" (click)="editando.set(!editando())">Editar</button>   <!-- invierte true/false -->
+      <button type="button" [disabled]="editando()" (click)="borrar()">Borrar</button>  <!-- apagado mientras se edita -->
+    </div>
+  </article>
+
+  @if (editando()) {                                                    <!-- el formulario solo existe si editando es true -->
+    <app-formulario [pantalon]="p" (actualizado)="alActualizar($event)" />  <!-- ver explicación abajo -->
+  }
+}

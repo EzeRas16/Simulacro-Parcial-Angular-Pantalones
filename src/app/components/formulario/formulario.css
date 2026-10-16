@@ -1,0 +1,61 @@
+
+/* ===== ERRORES ===== */
+.error {
+  color: var(--font-error-color);          /* color del texto: el rojo de la paleta */
+}
+
+/* ===== TÍTULOS ===== */
+h2 {
+  text-align: center;                      /* centra el texto horizontalmente */
+}
+
+h3 {
+  margin: 0;                               /* saca el espacio de afuera que el navegador le da a los títulos */
+  font-size: 1rem;                         /* tamaño de letra: 1rem = tamaño base (16px) */
+}
+
+/* ===== LA CAJA GRIS DEL FORMULARIO ===== */
+form {
+  background-color: var(--background-darker-color);  /* color de fondo, de la paleta */
+  max-width: 500px;                        /* ancho máximo: crece hasta 500px, no más */
+  margin: 0 auto 40px auto;                /* espacio EXTERNO: arriba 0, costados auto (centra), abajo 40px */
+  padding: 20px;                           /* espacio INTERNO: entre el borde y el contenido */
+  border: 1px solid #ccc;                  /* borde: grosor, estilo y color */
+  border-radius: 8px;                      /* redondea las esquinas */
+}
+
+/* ===== CADA CAMPO (etiqueta arriba, input abajo) ===== */
+.campo {
+  display: flex;                           /* activa flexbox: sus hijos se acomodan en un eje */
+  flex-direction: column;                  /* el eje pasa a vertical: un hijo debajo del otro */
+  margin-bottom: 15px;                     /* espacio vacío debajo de cada campo */
+}
+
+/* ===== LÍNEA DE ARRIBA DE UN CAMPO (etiqueta + error) ===== */
+.fila {
+  display: flex;                           /* los hijos quedan en fila */
+  justify-content: space-between;          /* uno pegado a la izquierda, el otro a la derecha */
+  align-items: center;                     /* los centra en vertical: queda todo al mismo nivel */
+}
+
+/* ===== "DISPONIBLE EN TIENDA" ===== */
+.checkbox {
+  display: flex;                           /* texto y casilla en fila */
+  align-items: center;                     /* los centra en vertical */
+  gap: 0.75rem;                            /* espacio ENTRE el texto y la casilla */
+  margin-bottom: 15px;                     /* separa este bloque del de "Talle" */
+}
+
+/* ===== LOS RADIOS DEL TALLE ===== */
+.radios {
+  display: flex;                           /* los cinco quedan en fila */
+  gap: 1rem;                               /* espacio entre un radio y el siguiente */
+}
+
+/* ===== BOTONES ===== */
+.botones {
+  display: flex;                           /* los dos botones en fila */
+  justify-content: center;                 /* los centra horizontalmente */
+  gap: 1rem;                               /* espacio entre Borrar y Enviar */
+}
+

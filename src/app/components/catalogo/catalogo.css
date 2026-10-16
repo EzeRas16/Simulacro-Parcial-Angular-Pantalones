@@ -1,0 +1,57 @@
+/* ===== TÍTULO PRINCIPAL ===== */
+h1 {
+  text-align: center;                              /* centra el texto horizontalmente */
+  color: var(--font-color);                        /* usa el color de texto definido en la paleta global */
+}
+
+/* ===== CONTENEDOR DE LA LISTA ===== */
+ul {
+  max-width: 560px;                                /* ancho máximo: la lista no va a crecer más de 560px */
+  margin: 0 auto;                                  /* centra la lista en la pantalla (margen automático a los lados) */
+  padding-left: 1.5rem;                            /* espacio interno a la izquierda (la sangría clásica de las listas) */
+  color: var(--font-color);                        /* aplica el color de texto de la paleta global */
+}
+
+/* ===== CADA FILA DE LA LISTA (PANTALÓN) ===== */
+li {
+  display: flex;                                   /* activa flexbox: pone los elementos (texto y botón) en la misma línea */
+  justify-content: space-between;                  /* tira el texto a la izquierda y empuja el botón a la derecha */
+  align-items: center;                             /* los centra verticalmente para que queden prolijos en la fila */
+  padding: 0.4rem 0;                               /* espacio interno: un poquito arriba y abajo, nada a los lados */
+  border-bottom: 1px solid var(--font-color);      /* dibuja la línea divisoria debajo de cada pantalón */
+}
+
+/* ===== BOTÓN "VER MÁS" ===== */
+button {
+  padding: 0.2rem 0.6rem;                          /* agranda el botón por dentro para que el texto no quede pegado al borde */
+  border: 2px solid var(--font-color);             /* dibuja un contorno de 2px usando el color de la paleta */
+  border-radius: 4px;                              /* le redondea levemente las esquinas al botón */
+  background: var(--background-darker-color);      /* color de fondo del botón, tomado de las variables globales */
+  color: var(--font-color);                        /* color de las letras adentro del botón */
+  font: inherit;                                   /* le dice que use la misma fuente de letra que usa toda la página */
+  cursor: pointer;                                 /* hace que el mouse se transforme en una manito al pasar por encima */
+}
+
+.filtros {
+  display: flex;                                   /* los tres filtros en fila */
+  flex-wrap: wrap;                                 /* si no entran, bajan a la línea siguiente */
+  justify-content: center;                         /* centrados */
+  gap: 1rem;                                       /* espacio entre filtros */
+  margin-bottom: 1.5rem;                           /* aire antes de la lista */
+}
+
+.filtros label {
+  display: flex;                                   /* texto y control apilados */
+  flex-direction: column;                          /* el texto arriba, el control abajo */
+  gap: 0.25rem;                                    /* espacio entre el texto y el control */
+}
+
+.filtros select,
+.filtros input {
+  padding: 0.3rem;                                 /* espacio interno */
+  font: inherit;                                   /* usa la tipografía de la página */
+  color: var(--font-color);                        /* color del texto, de la paleta */
+  background: var(--background-lighter-color);     /* fondo blanco de la paleta */
+  border: 1px solid var(--background-darker-color); /* borde fino y suave */
+  border-radius: 4px;                              /* esquinas redondeadas */
+}

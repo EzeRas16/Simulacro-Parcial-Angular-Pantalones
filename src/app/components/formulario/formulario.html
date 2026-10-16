@@ -1,0 +1,75 @@
+<h2>{{ pantalon() ? 'Editando Pantalon' : 'Agregando Pantalon' }}</h2>
+
+<form [formGroup]="pantalonForm" (ngSubmit)="guardar()">
+  <div class="campo">
+    <div class="fila">
+      <label for="modelName">Modelo</label>
+      @if (pantalonForm.controls.modelName.touched && pantalonForm.controls.modelName.invalid) {
+        <span class="error">El modelo es requerido</span>
+      }
+    </div>
+    <input type="text" placeholder="Jeans Clasico 501" formControlName="modelName" />
+  </div>
+
+  <div class="campo">
+    <div class="fila">
+      <label for="salePrice">Precio de venta</label>
+      @if (pantalonForm.controls.salePrice.touched && pantalonForm.controls.salePrice.invalid) {
+        <span class="error">El precio es requerido</span>
+      }
+    </div>
+    <input type="number" placeholder="29.99" formControlName="salePrice" />
+  </div>
+
+  <div class="checkbox">
+    <label for="isInStore">Disponible en tienda</label>
+    <input type="checkbox" formControlName="isInStore" />
+  </div>
+
+  <div class="campo">
+    <div class="fila">
+      <h3>Talle</h3>
+      @if (pantalonForm.touched && pantalonForm.controls.size.invalid) {
+        <span class="error">El talle es requerido</span>
+      }
+    </div>
+
+    <div class="radios">
+      <label>XS <input type="radio" value="XS" formControlName="size" /></label>
+      <label>S <input type="radio" value="S" formControlName="size" /></label>
+      <label>M <input type="radio" value="M" formControlName="size" /></label>
+      <label>L <input type="radio" value="L" formControlName="size" /></label>
+      <label>XL <input type="radio" value="XL" formControlName="size" /></label>
+    </div>
+  </div>
+
+  <div class = "campo">
+    <div class ="fila">
+        <label for="cut">Corte</label>
+        @if (pantalonForm.controls.cut.touched && pantalonForm.controls.cut.invalid) {
+            <span class = "error">El corte es requerido</span>
+        }
+    </div>
+    <select id="cut" formControlName = "cut">
+        <option value="" disabled>Seleccione el corte</option>
+        <option value="Recto">Recto</option>
+        <option value="Slim">Slim</option>
+        <option value="Oxford">Oxford</option>
+        <option value="Skinny">Skinny</option>
+        <option value="Cargo">Cargo</option>
+        <option value="Jogger">Jogger</option>
+    </select>
+  </div>
+
+  <div class = "campo">
+    @if (pantalonForm.controls.notes.touched && pantalonForm.controls.notes.invalid) {
+        <span class = "error">Maximo 200 caracteres</span>
+    }
+    <textarea placeholder="Tela denim pesada, 100% algodon..." formControlName="notes"></textarea>
+  </div>
+  
+  <div class ="botones">
+    <button type="button" (click)="limpiarformulario()">Borrar</button>
+    <button type="submit" [disabled] ="pantalonForm.invalid">Enviar</button>
+  </div>
+</form>

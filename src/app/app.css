@@ -1,0 +1,11 @@
+main  {
+    padding: 5rem 2rem 2rem;
+min-height: 60vh;
+}
+
+footer {
+    background: var(--background-darker-color);
+    text-align: center;
+    padding: 1.5rem;
+    
+}
